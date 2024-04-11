@@ -9,12 +9,12 @@
 Є наступний JavaScript код:
 
 ```ts
-let age = 50;
-let name = 'Max';
-let toggle = true;
-let empty = null;
-let notInitialize;
-let callback = (a) => { return 100 + a };
+let age: number = 50;
+let name: string = 'Max';
+let toggle: boolean = true;
+let empty: null = null;
+let notInitialize: undefined;
+let callback = (a: number) => number = (a) { return 100 + a };
 ```
 
 Перетворіть цей код на TypeScript, вказавши відповідні типи для всіх змінних.
@@ -22,7 +22,7 @@ let callback = (a) => { return 100 + a };
 ### Завдання 2
 JavaScript змінна може зберігати значення будь-якого типу:
 ```ts
-let anything = -20;
+let anything: any = -20;
 anything = 'Text';
 anything = {};
 ```
@@ -34,32 +34,35 @@ anything = {};
 let some:unknown;
 some = 'Text';
 let str: string;
-str = some;
+str = some as string;
 ```
 Що потрібно виправити в цьому коді, щоб він став правильним та безпечним?
 
 ### Завдання 4
 У вас є наступний JavaScript масив:
 ```ts
-let person = ['Max', 21];
+let person: [string, number] = ['Max', 21];
 ```
 Як переписати його в TypeScript, використовуючи концепцію кортежів, щоб гарантувати, що перший елемент завжди буде рядком, а другий числом?
 
 ### Завдання 5
 Як ви визначите змінну в TypeScript, яка може приймати рядок або число (union type)? І так само визначте змінну, яка може приймати тільки одне з двох рядкових значень: 'enable' або 'disable' (literal type)?
 
+let variable: string | number;
+let status: 'enable' | 'disable';
+
 ### Завдання 6
 У вас є такі функції JavaScript:
 ```ts
-function showMessage(message) {
+function showMessage(message: any) {
   console.log(message);
 }
 
-function calc(num1, num2) {
+function calc(num1: number, num2: number): number {
   return num1 + num2;
 }
 
-function customError() {
+function customError(): never {
   throw new Error('Error');
 }
 ```
